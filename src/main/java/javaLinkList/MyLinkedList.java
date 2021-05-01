@@ -22,6 +22,7 @@ public class MyLinkedList {
             this.head.setNext(tempNode);
         }
     }
+
     //appending node in linkedList
     public void append(INode newNode) {
         if (this.tail == null) {
@@ -34,6 +35,7 @@ public class MyLinkedList {
             this.tail = newNode;
         }
     }
+
     //inserting node 30 between 56 and 70
     public void insert(INode myNode, INode newNode) {
         INode tempNode = myNode.getNext();
@@ -70,6 +72,7 @@ public class MyLinkedList {
         this.tail = tempNode.getNext();
         tempNode.getNext().setNext(null);
     }
+
     //search nodes
     public INode searchNode(INode newNode) {
         INode tempNode = newNode;
@@ -82,5 +85,18 @@ public class MyLinkedList {
                 tempNode = tempNode.getNext();
         }
         return tempNode;
+    }
+
+    //add after 30
+    public void addAfter(INode newNode) {
+        INode tempNode = this.head;
+        while(tempNode !=null && tempNode.getNext() != null) {
+            if (tempNode.getKey().equals(30)) {
+                newNode.setNext(tempNode.getNext());
+                tempNode.setNext(newNode);
+                break;
+            } else
+                tempNode = tempNode.getNext();
+        }
     }
 }
