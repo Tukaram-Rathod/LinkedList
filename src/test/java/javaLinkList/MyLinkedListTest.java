@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MyLinkedListTest {
-    //test case for add number 56 ,30 ,70 in linkedList
+    //UC1 :test case for add number 56 ,30 ,70 in linkedList
     @Test
     public void given3NumbersWhenLinkedListShouldBeAddedToTop() {
         MyNode<Integer> myThirdNode = new MyNode<>(56);
@@ -21,7 +21,7 @@ public class MyLinkedListTest {
         Assert.assertTrue(result);
 
     }
-    //test case for appending number 30 between 56 and 70
+    //UC2 :test case for appending number 30 between 56 and 70
     @Test
     public void given3Numbers_Append_To_LinkedListShouldBeAdded_At_Last() {
         MyNode<Integer> myThirdNode = new MyNode<>(70);
@@ -38,7 +38,7 @@ public class MyLinkedListTest {
         Assert.assertTrue(result);
 
     }
-    //inserting node 30 between 56 and 70 nodes
+    //UC3 :inserting node 30 between 56 and 70 nodes
     @Test
     public void given3Numbers_Insert_To_LinkedListShouldBeAdded_At_Between() {
         MyNode<Integer> myThirdNode = new MyNode<>(70);
@@ -52,6 +52,23 @@ public class MyLinkedListTest {
         boolean result = myLinkedList.head.equals(myFirstNode) &&
                 myLinkedList.head.getNext().equals(mySecondNode) &&
                 myLinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+
+    }
+    //UC4 :inserting node 30 between 56 and 70 nodes
+    @Test
+    public void given3Numbers_pop_FirstNumber_ShouldBeDelete_From_Top() {
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.add(mySecondNode);
+        myLinkedList.add(myThirdNode);
+        myLinkedList.pop(myFirstNode);
+        myLinkedList.printmyNodes();
+        boolean result = myLinkedList.head.equals(mySecondNode) &&
+                myLinkedList.tail.equals(myFirstNode);
         Assert.assertTrue(result);
 
     }
