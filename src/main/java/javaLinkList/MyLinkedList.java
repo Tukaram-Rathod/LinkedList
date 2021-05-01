@@ -57,7 +57,7 @@ public class MyLinkedList {
 
     //pop method for deleting first elements from linkedList
     public void pop(INode newNode) {
-        INode tempNode = this.head;
-        this.head = head.getNext();
+        INode tempNode = newNode;
+        this.head = tempNode.getNext();
     }
 }

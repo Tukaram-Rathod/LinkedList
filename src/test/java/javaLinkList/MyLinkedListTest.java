@@ -58,17 +58,19 @@ public class MyLinkedListTest {
     //UC4 :inserting node 30 between 56 and 70 nodes
     @Test
     public void given3Numbers_pop_FirstNumber_ShouldBeDelete_From_Top() {
-        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyLinkedList myLinkedList = new MyLinkedList();
-        myLinkedList.add(myFirstNode);
-        myLinkedList.add(mySecondNode);
-        myLinkedList.add(myThirdNode);
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.printmyNodes();
         myLinkedList.pop(myFirstNode);
         myLinkedList.printmyNodes();
         boolean result = myLinkedList.head.equals(mySecondNode) &&
-                myLinkedList.tail.equals(myFirstNode);
+                myLinkedList.head.getNext().equals(myThirdNode) &&
+                myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
 
     }
