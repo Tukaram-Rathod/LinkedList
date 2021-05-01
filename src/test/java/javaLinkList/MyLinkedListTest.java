@@ -74,4 +74,23 @@ public class MyLinkedListTest {
         Assert.assertTrue(result);
 
     }
+    //UC6 :deleting last node of elements
+    @Test
+    public void given3Numbers_pop_FirstNumber_ShouldBeDelete_From_Last() {
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.printmyNodes();
+        myLinkedList.popLast(myFirstNode);
+        myLinkedList.printmyNodes();
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.tail.equals(mySecondNode);
+        Assert.assertTrue(result);
+
+    }
 }
